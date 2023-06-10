@@ -1,0 +1,32 @@
+@import "../../variables";
+
+.cardCategory {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  p {
+    font-size: 15px !important;
+    font-weight: 100;
+    font-family: sans-serif;
+  }
+
+  .card {
+    background-color: $Home_Hero_color;
+    width: 150px;
+
+    height: 150px;
+    border-radius: 50%;
+    padding: 5px;
+    img {
+      width: 100%;
+      border-radius: 50%;
+      // box-shadow: 0 5px 1px -2px gray;
+      transition: 0.4s all ease-in;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+  }
+}

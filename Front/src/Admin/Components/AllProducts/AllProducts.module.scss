@@ -1,0 +1,18 @@
+.AllProducts {
+  display: flex;
+  background-color: #f8f8f9;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  position: relative;
+  height: 100dvh;
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+
+    margin-left: -15px;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,13 @@
+.error {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 4;
+  left: 0;
+  color: red;
+}

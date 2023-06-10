@@ -1,0 +1,16 @@
+@import "../../../variables";
+
+.hero {
+  padding: 0px calc(100% - 80%);
+
+  background-color: $Home_Hero_color;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}

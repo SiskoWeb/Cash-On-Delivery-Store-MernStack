@@ -1,0 +1,54 @@
+@import "../../../variables.scss";
+
+.NavBarAdmin {
+  background-color: #ffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  height: 60px;
+  color: black;
+  .btnToggle {
+    button {
+      border: none;
+      background-color: transparent;
+      i {
+        font-size: 16px;
+        color: $Home_Main_color;
+      }
+    }
+  }
+  .AdminNavBar_profil {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+
+    img {
+      width: 50px;
+    }
+
+    p {
+      display: flex;
+      font-weight: 900;
+      flex-direction: column;
+      span {
+        font-weight: 400 !important;
+        font-size: 10px;
+        text-align: center;
+      }
+    }
+    button {
+      border: none;
+      padding: 5px;
+      border-radius: 10px;
+      box-shadow: 1px 1px 1px rgb(167, 167, 167);
+      background-color: red;
+      color: white;
+      font-weight: 900;
+    }
+  }
+
+  .AdminNavBar_links {
+    border: none;
+  }
+}

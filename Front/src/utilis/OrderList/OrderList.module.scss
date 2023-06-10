@@ -1,0 +1,54 @@
+@import "../../variables.scss";
+.OrderList {
+  margin-top: 50px;
+  background-color: white;
+  padding: 20px 0;
+  height: 100%;
+  min-height: 400px;
+  .orderCol1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 700;
+    .orderBtn {
+      background-color: red;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  }
+  //@desc called from variables.scss
+  @include Table;
+
+  .shipped {
+    background-color: #55d447;
+    color: #fff;
+    max-width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .pending {
+    background-color: #7c6fb8;
+
+    color: #fff;
+    max-width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+
+    .remove {
+      color: red;
+      cursor: pointer;
+    }
+    .update {
+      color: green;
+    }
+  }
+}

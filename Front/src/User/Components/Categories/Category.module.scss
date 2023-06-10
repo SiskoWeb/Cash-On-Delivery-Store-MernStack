@@ -1,0 +1,19 @@
+@import "../../../variables";
+
+.categories {
+  padding: 30px calc(100% - 80%);
+  width: 100%;
+  height: 100%;
+  p {
+    font-size: 25px;
+    font-weight: 900;
+    font-family: sans-serif;
+  }
+}
+
+.list {
+  display: flex;
+  column-gap: 40px;
+  padding: 20px 0;
+  align-items: center;
+}

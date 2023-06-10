@@ -1,0 +1,106 @@
+@import "../../variables";
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 1px 1px #00000044;
+  transition: 0.5s;
+
+  @include QuantityCart;
+  width: 300px;
+  .card1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $Home_Hero_color;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    img {
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      transition: 0.3s all ease-in;
+    }
+  }
+
+  .card2 {
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+
+    column-gap: 40px;
+    flex-direction: column;
+  }
+
+  .col1 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+  }
+
+  .text {
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 2px -2px gray;
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+    a {
+      text-decoration: none !important;
+      color: black !important;
+    }
+  }
+
+  .text :nth-child(2) {
+    font-size: 12px !important;
+    font-weight: 200 !important;
+    color: black !important;
+  }
+
+  .btns {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5px;
+    button {
+      color: #03a103;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+    }
+    p {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      font-family: --bs-font-sans-serif;
+    }
+  }
+}
+.productCard:hover img {
+  transform: scale(1.1);
+}
+.addToCart {
+  width: 100%;
+  height: 30px;
+  background-color: #3f81eb !important;
+  border: none;
+  border-radius: 50px;
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 15px;
+  column-gap: 10px;
+}

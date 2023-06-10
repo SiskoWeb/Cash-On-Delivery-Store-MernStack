@@ -1,0 +1,93 @@
+@import "../../../variables.scss";
+.OrderDetail {
+  display: grid;
+  grid-template-columns: 75% auto;
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+
+  .cardHeader {
+    // padding: 30px;
+    border-bottom: 1px solid #f8f8f9;
+    padding-bottom: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      color: red;
+    }
+    .shipped {
+      background-color: #55d447;
+      color: #fff;
+      max-width: 100%;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .pending {
+      background-color: #7c6fb8;
+
+      color: #fff;
+      max-width: 100%;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  }
+
+  .card {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+
+    .ListProduct {
+      width: 100%;
+      img {
+        width: 80px;
+      }
+    }
+
+    .TotalPrice {
+      width: 100%;
+      display: flex;
+      column-gap: 20px;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .itemShipping {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 50% 50%;
+
+      .item {
+        display: flex;
+
+        column-gap: 10px;
+      }
+    }
+
+    .optionsStatus {
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+      svg {
+        transform: scale(0.7);
+      }
+    }
+  }
+}
+//@desc called from variables.scss
+@include Table;
+
+

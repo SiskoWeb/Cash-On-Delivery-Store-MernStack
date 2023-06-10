@@ -1,0 +1,42 @@
+$colors_Card: (
+  "1": #7c6fb8,
+  "2": #006ba9,
+  "3": #0d6603,
+  "4": #4aa53f,
+);
+
+.cardAdmin {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+  justify-content: space-around;
+  height: 100px;
+
+  i {
+    font-size: 60px;
+  }
+  p {
+    font-size: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    row-gap: 50px;
+    // align-items: start;
+    flex-direction: column;
+  }
+  text-align: center;
+}
+// @each $key, $val in $colors_Card {
+//   & {
+//     background-color: $val;
+//   }
+// }
+// @for $i from 1 through 4 {
+//   .cardAdmin {
+//     background-color: map-get($map: $colors_Card, $key: $i);
+//   }
+// }

@@ -1,0 +1,95 @@
+@import "../../../variables.scss";
+:root {
+  --primary: #23adad;
+  --greyLight: #23adade1;
+  --greyLight-2: #cbe0dd;
+  --greyDark: #2d4848;
+}
+.AllOrders {
+  position: relative;
+  margin-top: 50px;
+  background-color: white;
+  padding: 20px 0;
+  height: 100%;
+  min-height: 400px;
+  .orderCol1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 700;
+    .orderBtn {
+      background-color: red;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  }
+  //@desc called from variables.scss
+  @include Table;
+  .icons {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+
+    .remove {
+      color: red;
+      cursor: pointer;
+    }
+    .update {
+      color: green;
+    }
+  }
+}
+.ordersPage {
+  ::marker {
+    color: transparent;
+  }
+  ul {
+    // display: inline-block;
+    // padding-left: 15px;
+    // padding-right: 15px;
+  }
+
+  .containerClassName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    margin: 3rem;
+    border-radius: 0.6rem;
+    background: #ffffff;
+    box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
+  }
+
+  .pageClassName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 0.4rem;
+  }
+
+  .breakClassName {
+    color: var(--greyLight);
+    cursor: initial;
+  }
+
+  .activeClassName {
+    color: #ffffff;
+    background: var(--primary);
+    font-weight: 600;
+    border: 1px solid var(--primary);
+  }
+
+  .previousClassName,
+  .nextClassName {
+    cursor: pointer;
+    font-size: 1rem;
+  }
+}
