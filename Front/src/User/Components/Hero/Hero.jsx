@@ -10,7 +10,7 @@ export default function Hero() {
 
             <div className={styles.col1}>
                 <h4 >Poupler product</h4>
-                <h1>Hot Product This Week</h1>
+                <h1>Hot Product Every Week</h1>
 
                 <button>DISCOVER NOW <i className="fa-solid fa-arrow-right"></i></button>
             </div>

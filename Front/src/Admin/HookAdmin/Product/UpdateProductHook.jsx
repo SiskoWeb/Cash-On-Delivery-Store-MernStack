@@ -330,7 +330,7 @@ export const UpdateProductHook = () => {
             conve()
 
             setTimeout(() => {
-                itemImages.length > 1 ? itemImages.forEach((item) => formData.append('images', item)) : formData.append('images', null)
+                itemImages.length > 1 ? itemImages.forEach((item) => formData.append('images', item)) : formData.append('images',)
 
 
 

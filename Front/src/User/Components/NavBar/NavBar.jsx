@@ -27,35 +27,47 @@ export default function NavBar() {
             <div className={styles.navbar}>
 
 
-                <div className={styles.links}>
-                    <div className={styles.logo}> <Link to='/' ><img src={Logo}></img></Link></div>
-                    <div className={styles.links}>
 
-                        <Link to='/'>Home</Link>
-                        <Link to='/'>Categories</Link>
-                        <Link to='/'>Products</Link>
+                <div className={styles.logo}>
 
-
-                    </div>
+                    <Link to='/' ><img src={Logo}></img></Link>
 
                 </div>
 
+
+
+                <div className={styles.links}>
+
+                    <Link to='/'>Home</Link>
+                    <Link to='/'>Categories</Link>
+                    <Link to='/'>Products</Link>
+
+
+                </div>
+
+
                 <div className={styles.cart}>
-                    <div className={styles.inputClass}>
-                        <input type='text' placeholder='search for...'></input>
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                    </div>
-
-
                     <div className={styles.cartMain}>
-                        <Link to="/cart" >  {cart <= 1 ? null : <div className={styles.cartActive}>{cart?.length}</div>}
+                        <Link to="/cart" >  {cart <= 1 ? null : <div className={styles.cartActive}>{cart?.length}
+
+                        </div>}
+
                             <i className={`${styles.cartIcon}  fa-brands fa-opencart`} ></i></Link>
 
                         <div className={styles.popup}> <CartBodyPopup /></div>
+
                     </div>
 
                 </div>
+
+
             </div>
         </navbar>
     )
 }
+
+
+// <div className={styles.inputClass}>
+// <input type='text' placeholder='search for...'></input>
+// <i className="fa-solid fa-magnifying-glass"></i>
+// </div>

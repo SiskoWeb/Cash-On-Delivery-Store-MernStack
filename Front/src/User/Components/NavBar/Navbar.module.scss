@@ -5,7 +5,7 @@
   background-color: $Home_Main_color;
   width: 100%;
   height: 50px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   display: flex;
 
@@ -25,7 +25,8 @@
     }
   }
   .logo {
-    padding-right: 20px;
+    width: 100%;
+    // padding-right: 20px;
     height: 100%;
     img {
       max-width: 120px;
@@ -33,9 +34,11 @@
   }
 
   .cart {
+    width: 100%;
     display: flex;
     column-gap: 40px;
     align-items: center;
+    justify-content: center;
     position: relative;
     .cartIcon {
       color: white;
