@@ -5,10 +5,11 @@ import { UpdateProductHook } from '../../HookAdmin/Product/UpdateProductHook'
 import { GetCategoryHook } from '../../HookAdmin/Category/GetCategoryHook';
 import Loading from '../../../utilis/Loading/Loading';
 import ErrorPopUp from '../../../utilis/ErrorPopUp/ErrorPopUp';
-import addImg from '../../../assets/addimg.png'
+import JoditEditor from 'jodit-react';
+
 export default function EditProduct() {
     const [ignoreThisValue, Categories] = GetCategoryHook()
-    const [onSubmit, handleChange, formInputData, handleChangeImageCover, mainImage, onRemoveImage, handleChangeImages, listimages, isloading, error] = UpdateProductHook()
+    const [onSubmit, handleChange, formInputData, handleChangeImageCover, mainImage, onRemoveImage, handleChangeImages, listimages, isloading, error, config, editor, content, setContent] = UpdateProductHook()
 
     return (
         <div>
@@ -75,9 +76,16 @@ export default function EditProduct() {
 
 
 
-
                             <div className={styles.formGroup}>
-                                <label><p><span>*</span>Product Description</p> <textarea className={styles.formControl} onChange={handleChange} value={formInputData.description} name="description" type='text'></textarea></label>
+                                <label><p><span>*</span>Product Description</p>
+                                    <JoditEditor
+                                        ref={editor}
+                                        value={content}
+                                        config={config}
+                                        onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+
+                                    />
+                                </label>
                             </div>
 
 

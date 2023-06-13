@@ -4,13 +4,47 @@
   padding: 0px calc(100% - 80%);
 
   background-color: $Home_Hero_color;
-  width: 100%;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  height: 600px;
-
   img {
     height: 100%;
     width: 100%;
+  }
+  button {
+    background-color: $Home_Main_color;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+  }
+}
+.col1 {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: start;
+  h1 {
+    color: #5897fb !important;
+    font-size: 58px;
+    line-height: 64px;
+    margin: 0;
+    font-weight: 700;
+    font-family: Poppins, sans-serif;
+  }
+  h4 {
+    font-size: 24px;
+    margin: 0 0 18px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  p {
+    font-weight: 900;
+  }
+}
+.col2 {
+  flex-basis: 50%;
+  img {
+    padding: 0 10px;
   }
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import notify from "../../../Hooks/useNotifaction"
 import { useDispatch, useSelector } from "react-redux"
 import { AddProduct, getOneProductRedux, updateProductRedux } from "../../../Redux/productsSlice/ActionsProducts"
@@ -14,7 +14,9 @@ export const UpdateProductHook = () => {
     const [id, setId] = useState(params.id)
     const [error, sesetError] = useState(false)
 
+    const editor = useRef(null);
 
+    const [content, setContent] = useState('');
     // const [displayImageCover, setDisplayImageCover] = useState(addImg)
     const [mainImage, setMainImage] = useState(
         {
@@ -27,7 +29,7 @@ export const UpdateProductHook = () => {
     const [formInputData, setformInputData] = useState(
         {
             title: '',
-            description: '',
+            // description: '',
             quantity: Number,
             price: Number,
             category: null,
@@ -60,6 +62,11 @@ export const UpdateProductHook = () => {
         }
     ]);
 
+    /// Text Rich ===================
+
+    const config = {
+        placeholder: 'Start typings...'
+    }
 
 
 
@@ -126,13 +133,13 @@ export const UpdateProductHook = () => {
 
 
 
-
+                editor.current.value = GetOneProduct.data.data.description
 
 
                 //@desc add data from server to inputs
                 setformInputData({
                     title: GetOneProduct.data.data.title,
-                    description: GetOneProduct.data.data.description,
+                    // description: GetOneProduct.data.data.description,
                     quantity: GetOneProduct.data.data.quantity,
                     price: GetOneProduct.data.data.price,
                     category: GetOneProduct.data.data.category?._id || null,
@@ -246,7 +253,7 @@ export const UpdateProductHook = () => {
     const onSubmit = async (e) => {
 
         e.preventDefault()
-  
+
 
 
 
@@ -255,7 +262,7 @@ export const UpdateProductHook = () => {
             notify('title to short', 'warn')
             return
         }
-        if (formInputData.description.length <= 20) {
+        if (editor.current.value.length <= 20) {
             notify('description to short', 'warn')
             return
         }
@@ -334,7 +341,7 @@ export const UpdateProductHook = () => {
             //@desc check if user change img if yes add it into form if not updae only name
             if (mainImage.image === null) {
                 formData.append('title', formInputData.title)
-                formData.append('description', formInputData.description)
+                formData.append('description', editor.current.value)
                 formData.append('quantity', parseInt(formInputData.quantity))
                 formData.append('price', parseInt(formInputData.price))
                 formData.append('category', formInputData.category)
@@ -342,7 +349,7 @@ export const UpdateProductHook = () => {
 
             else {
                 formData.append('title', formInputData.title)
-                formData.append('description', formInputData.description)
+                formData.append('description', editor.current.value)
                 formData.append('quantity', parseInt(formInputData.quantity))
                 formData.append('price', parseInt(formInputData.price))
 
@@ -411,5 +418,5 @@ export const UpdateProductHook = () => {
     }, [loading])
 
 
-    return [onSubmit, handleChange, formInputData, handleChangeImageCover, mainImage, onRemoveImage, handleChangeImages, listimages, isloading, error]
+    return [onSubmit, handleChange, formInputData, handleChangeImageCover, mainImage, onRemoveImage, handleChangeImages, listimages, isloading, error, config, editor, content, setContent]
 } 

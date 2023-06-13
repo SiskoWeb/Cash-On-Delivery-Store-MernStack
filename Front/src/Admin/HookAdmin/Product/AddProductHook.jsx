@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import notify from "../../../Hooks/useNotifaction"
 import { useDispatch, useSelector } from "react-redux"
 import { AddProduct } from "../../../Redux/productsSlice/ActionsProducts"
@@ -13,13 +13,14 @@ export const AddProductHook = () => {
 
     const [displayImageCover, setDisplayImageCover] = useState(addImg)
     const [imageCover, setImageCover] = useState(null)
+    const editor = useRef(null);
 
-
+    const [content, setContent] = useState('');
 
     const [formInputData, setformInputData] = useState(
         {
             title: '',
-            description: '',
+            // description: '',
             quantity: Number,
             price: Number,
             category: '',
@@ -51,6 +52,13 @@ export const AddProductHook = () => {
             imageDisplay: addImg
         }
     ]);
+
+
+    /// Text Rich ===================
+
+    const config = {
+        placeholder: 'Start typings...'
+    }
 
 
 
@@ -124,16 +132,20 @@ export const AddProductHook = () => {
     const addProductResponse = useSelector(state => state.products.addProductResponse)
     const isloading = useSelector(state => state.products.isloading)
 
+
+
+
+
     // @desc upload data to Server 
     const onSubmit = async (e) => {
         e.preventDefault()
-
+        console.log(editor.current?.value)
         //@desc  valuesValidator
         if (formInputData.title.length <= 3) {
             notify('title to short', 'warn')
             return
         }
-        if (formInputData.description.length <= 20) {
+        if (editor.current?.value.length <= 20) {
             notify('description to short', 'warn')
             return
         }
@@ -168,7 +180,7 @@ export const AddProductHook = () => {
             // @desc create new form from buildin FromData
             const formData = new FormData()
             formData.append('title', formInputData.title)
-            formData.append('description', formInputData.description)
+            formData.append('description', editor.current?.value)
             formData.append('quantity', parseInt(formInputData.quantity))
             formData.append('price', parseInt(formInputData.price))
             formData.append('category', formInputData.category)
@@ -239,6 +251,7 @@ export const AddProductHook = () => {
                     ])
                     setImageCover(null)
                     setDisplayImageCover(addImg)
+                    setContent('')
                 }
             }
             else {
@@ -288,5 +301,5 @@ export const AddProductHook = () => {
     }, [loading])
 
 
-    return [onSubmit, handleChange, formInputData, handleChangeImageCover, displayImageCover, imageCover, onRemoveImage, handleChangeImages, listimages, isloading]
+    return [onSubmit, handleChange, formInputData, handleChangeImageCover, displayImageCover, imageCover, onRemoveImage, handleChangeImages, listimages, isloading, config, editor, content, setContent]
 } 

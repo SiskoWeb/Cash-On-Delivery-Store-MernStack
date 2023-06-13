@@ -87,9 +87,10 @@ export default function ProductDetails() {
                     <div>  <p>Description</p></div>
                     <hr></hr>
 
-                    <div>
-                        <p>Short Hooded Coat features a straight body, large pockets with button flaps, ventilation air holes, and a string detail along the hemline. The style is completed with a drawstring hood, featuring Rains’ signature built-in cap. Made from waterproof, matte PU, this lightweight unisex rain jacket is an ode to nostalgia through its classic silhouette and utilitarian design details.<br></br>This is a unisex item, please check our clothing & footwear sizing guide for specific Rains jacket sizing information. RAINS comes from the rainy nation of Denmark at the edge of the European continent, close to the ocean and with prevailing westerly winds; all factors that contribute to an average of 121 rain days each year. Arising from these rainy weather conditions comes the attitude that a quick rain shower may be beautiful, as well as moody- but first and foremost requires the right outfit. Rains focus on the whole experience of going outside on rainy days, issuing an invitation to explore even in the most mercurial weather.</p>
-                    </div>
+
+                    <div dangerouslySetInnerHTML={{ __html: productsData?.description }}></div>
+
+
                 </div>
 
 
