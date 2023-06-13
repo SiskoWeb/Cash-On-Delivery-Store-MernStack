@@ -32,7 +32,7 @@ exports.resizeImage = asyncHandler(async (req, res, next) => {
         req.body.images = []
         await Promise.all(
             req.files.images.map(async (img) => {
-                const imageName = `PRODUCT-${Date.now()}-${Math.round(Math.random() * 1E9)}.jpeg`
+                const imageName = `PRODUCT-${Date.now()}-${Math.round(Math.random() * 1E9)}.png`
 
                 await sharp(img.buffer)
                     .resize(600, 600)

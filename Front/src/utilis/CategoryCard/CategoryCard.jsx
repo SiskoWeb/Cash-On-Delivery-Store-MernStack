@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './CategoryCard.module.scss'
 
 export default function CategoryCard({ data }) {
@@ -6,7 +7,7 @@ export default function CategoryCard({ data }) {
 
 
     return (
-        <div className={styles.cardCategory}>
+        <Link to={`Categories/${data?._id}`} className={styles.cardCategory}>
             <div className={styles.card} >
 
 
@@ -17,7 +18,7 @@ export default function CategoryCard({ data }) {
             </div>
 
             <p>{data?.name}</p>
-        </div>
+        </Link>
 
 
     )

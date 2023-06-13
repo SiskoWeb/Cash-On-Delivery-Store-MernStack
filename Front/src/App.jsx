@@ -8,7 +8,7 @@ import ProductsHome from './User/Components/ProductsHome/ProductsHome/ProductsHo
 import Footer from './utilis/Footer/Footer'
 import HomePage from './User/Pages/HomePage/HomePage'
 import ProductDetails from './User/Pages/ProductDetails/ProductDetails'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import CartPage from './User/Pages/CartPage/CartPage'
 import LoginPage from './Admin/Pages/LoginPage/LoginPage'
 import DashboardPage from './Admin/Pages/DashboardPage/DashboardPage'
@@ -22,20 +22,17 @@ import EditProduct from './Admin/Components/EditProduct/EditProduct'
 import { useSelector } from 'react-redux'
 import OrderDetail from './Admin/Components/OrderDetail/OrderDetail'
 import ThankYouPage from './User/Pages/ThankYouPage/ThankYouPage'
+import ProductsByCategory from './User/Pages/ProductsByCategory/ProductsByCategory'
+import AllProductsUser from './User/Pages/AllProductsUser/AllProductsUser'
 
 function App() {
   const isloading = useSelector((state) => state.categories.isloading)
 
-  const [user, setUser] = useState('')
+  const user = useSelector(state => state.auth.user)
 
   useEffect(() => {
-    if (localStorage.getItem("user") != null)
-      setUser(JSON.parse(localStorage.getItem("user")))
 
-
-  }, [LoginPage])
-
-
+  }, [])
 
   return (
 
@@ -46,13 +43,24 @@ function App() {
       <BrowserRouter>
 
         <Routes>
+
+
           <Route path="/" element={<HomePage />} />
           <Route path="/Product/:id" element={<ProductDetails />} />
+          <Route path="/Products" element={<AllProductsUser />} />
+          <Route path="/Categories/:id" element={<ProductsByCategory />} />
+
 
 
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="admin" element={<DashboardPage />}>
+
+          <Route
+            path="/login"
+            element={false ? <LoginPage /> : <Navigate to="/admin" />}
+          />
+
+
+          <Route path="admin" element={false ? <Navigate to="/login" /> : <DashboardPage />} >
             <Route index element={<Dashboard />} />
 
 
@@ -74,6 +82,7 @@ function App() {
       </BrowserRouter>
     </div>
   )
+
 }
 
 export default App

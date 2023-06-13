@@ -1,6 +1,7 @@
 import CategoryCard from '../../../utilis/CategoryCard/CategoryCard'
 import styles from './Category.module.scss'
 import { CategoriesHook } from '../../Hook/CategoriesHook/CategoriesHook'
+import { Link } from 'react-router-dom'
 
 export default function Categories() {
 
@@ -15,9 +16,12 @@ export default function Categories() {
     return (
 
         <div className={styles.categories}>
+       
+  
             <p>Categories</p>
             <div className={styles.list}>
-                {isloading ? <h1>Loading</h1> : categoriesData.length >= 1 ? categoriesData?.map((item, index) => <CategoryCard key={item._id} data={item} />) : <h1>No Categories</h1>}
+                {isloading ? <h1>Loading</h1> : categoriesData.length >= 1 ? categoriesData?.map((item, index) => 
+                <CategoryCard key={item._id} data={item} />) : <h1>No Categories</h1>}
 
             </div>
         </div>

@@ -39,8 +39,8 @@ export default function NavBar() {
                 <div className={styles.links}>
 
                     <Link to='/'>Home</Link>
-                    <Link to='/'>Categories</Link>
-                    <Link to='/'>Products</Link>
+
+                    <Link to='/Products'>Products</Link>
 
 
                 </div>
