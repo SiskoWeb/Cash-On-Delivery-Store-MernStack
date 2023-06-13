@@ -14,18 +14,20 @@ export default function ProductDetails() {
 
 
 
-    const [isloading, productsData] = GetProductHook()
+
+    const [isloading, productsData, images1] = GetProductHook()
     const [AddToCartFunc] = AddProductToCartHook()
 
     const [onRemove, onDecrement, onincrement] = CartHook()
 
     const cart = useSelector((state) => state.cart.Cart)
 
-
     //@desc filter cart and get only cart of our product
     useEffect(() => {
 
         setItemCart(cart.filter(p => p.productID === productsData._id))
+
+        console.log(productsData)
 
     }, [cart, productsData])
 
@@ -39,12 +41,12 @@ export default function ProductDetails() {
             <div className={styles.PageProdcut}>
                 <div className={styles.ProductDetails}>
                     <div className={styles.ProductImages} >
-                        {/*     <div className={styles.ListImgs}>
-                            {productsData.images?.map((item, index) => {
-                                return (<img key={index} className={styles.minImages} src={item} onClick={() => setImageIndex(index)}></img>)
+                        {<div className={styles.ListImgs}>
+                            {images1?.map((item, index) => {
+                                return (<img key={index} className={styles.miniImages} src={item} onClick={() => setImageIndex(index)}></img>)
                             })}
-                        </div> */}
-                        <img className={styles.MainImgs} src={productsData.imageCover}></img>
+                        </div>}
+                        <img className={styles.MainImgs} src={images1[imageIndex]}></img>
                     </div>
 
                     <div className={styles.Text} >

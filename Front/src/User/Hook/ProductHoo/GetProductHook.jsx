@@ -13,7 +13,7 @@ export const GetProductHook = () => {
     const [id, setId] = useState(params.id)
     const [productsData, setProductsData] = useState([])
 
-
+    const [images1, setImages1] = useState([])
 
 
 
@@ -24,6 +24,7 @@ export const GetProductHook = () => {
         const getOneProduct = async () => {
 
             await dispatch(getOneProductRedux(id))
+
         }
 
         getOneProduct()
@@ -40,6 +41,11 @@ export const GetProductHook = () => {
 
             if (GetOneProduct.data.data) {
                 setProductsData(GetOneProduct.data.data)
+
+                //@Desc Merg all images in one state
+                const noNullImages = GetOneProduct.data.data.images.filter(i => !i.includes('/null'))
+                const mergedArray = [GetOneProduct.data.data.imageCover, ...noNullImages];
+                setImages1(mergedArray);
             }
 
         }
@@ -57,7 +63,7 @@ export const GetProductHook = () => {
 
         }
     }, [GetOneProduct])
-    return [isloading, productsData]
+    return [isloading, productsData, images1]
 
 
 } 

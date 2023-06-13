@@ -8,11 +8,13 @@
   display: flex;
   padding-bottom: 100px;
   @include QuantityCart;
+  column-gap: 20px;
 }
 
 .ProductImages {
   flex-basis: 50%;
   display: flex;
+  column-gap: 10px;
 }
 .Text {
   flex-basis: 50%;
@@ -24,20 +26,23 @@
   h1 {
     font-weight: 600 !important;
     font-family: sans-serif;
+    width: 100%;
   }
 }
-.minImages {
+.miniImages {
   width: 100px !important;
 }
 .ListImgs {
-  flex-basis: 10%;
+  flex-basis: 50%;
+
   row-gap: 10px;
   display: flex;
   flex-direction: column;
 }
 .MainImgs {
-  //   flex-basis: 90%;
+  flex-basis: 90%;
   height: 500px;
+  background-color: #f5f5f5;
 }
 
 .weight {
