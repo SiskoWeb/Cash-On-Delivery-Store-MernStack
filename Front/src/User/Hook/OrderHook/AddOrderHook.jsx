@@ -34,6 +34,10 @@ export function AddOrderHook() {
 
         const cartItems = JSON.parse(localStorage.getItem("shopping-cart"))
         const shippingAddress = JSON.parse(localStorage.getItem("address"))
+
+
+        if (Object.keys(cartItems).length === 0) return notify('Cart Empty', 'warn')
+        if (Object.keys(shippingAddress).length === 0) return notify('Add Shipping Address', 'warn')
         // if (cartItems.length < 1) return notify('no product in cart', 'warn')
         // if (shippingAddress.length < 1) return notify('add address first', 'warn')
 

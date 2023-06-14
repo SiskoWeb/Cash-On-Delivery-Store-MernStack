@@ -4,7 +4,7 @@ export default function FilterBar() {
     return (
         <div>
             <div></div>
-            asd
+            Filter Coming Sonn
         </div>
     )
 }

@@ -22,10 +22,11 @@ export default function SideBar() {
 
 
                 <li>     <NavLink end className={ActiveLink} to="/admin"><i className="fa-solid fa-gauge" ></i><span>Dashboard</span><i className="fa fa-angle-right pull-right"></i></NavLink> </li>
-                <li >    <NavLink className={ActiveLink} to="allproducts"><i className="fa-brands fa-product-hunt"></i><span>Products</span><i className="fa fa-angle-right pull-right"></i></NavLink></li>
+                <li >    <NavLink className={ActiveLink} to="allproducts"><i className="fa-solid fa-table-columns"></i><span>Products</span><i className="fa fa-angle-right pull-right"></i></NavLink></li>
                 <li >    <NavLink className={ActiveLink} to="addproduct"><i className="fa-solid fa-water"></i><span>Add Product</span><i className="fa fa-angle-right pull-right"></i></NavLink></li>
                 <li >    <NavLink className={ActiveLink} to="categories"><i className="fa-solid fa-water"></i><span>Categories</span><i className="fa fa-angle-right pull-right"></i></NavLink></li>
                 <li >    <NavLink className={ActiveLink} to="Admins"><i className="fa-solid fa-water"></i><span>Admins</span><i className="fa fa-angle-right pull-right"></i></NavLink></li>
+                <li >    <NavLink className={ActiveLink} to="Promos"><i className="fa-solid fa-water"></i><span>Promos</span><i className="fa fa-angle-right pull-right"></i></NavLink></li>
 
 
             </ul>

@@ -21,7 +21,7 @@ export const CartSlice = createSlice({
                 state.Cart.map(item => {
                     if (item.productID === action.payload.productID) {
                         item.quantity = item.quantity + 1
-                        notify('increment quantity', 'success')
+
                     }
                 })
             }
@@ -36,7 +36,7 @@ export const CartSlice = createSlice({
             state.Cart.map(item => {
                 if (item.productID === action.payload) {
                     item.quantity = item.quantity + 1
-                    notify('increment quantity', 'success')
+                    // notify('increment quantity', 'success')
                 } else {
                     return state
                 }
@@ -49,11 +49,11 @@ export const CartSlice = createSlice({
                     if (item.quantity > 1) {
 
                         item.quantity = item.quantity - 1
-                        notify('decrement quantity', 'success')
+                        // notify('decrement quantity', 'success')
                     }
                     else {
                         state.Cart = state.Cart.filter(item => item.productID !== action.payload)
-                        notify('Removed from cart', 'success')
+                        // notify('Removed from cart', 'success')
                     }
                 } else {
 
