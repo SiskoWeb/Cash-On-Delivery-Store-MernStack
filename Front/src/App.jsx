@@ -28,11 +28,7 @@ import AllProductsUser from './User/Pages/AllProductsUser/AllProductsUser'
 function App() {
   const isloading = useSelector((state) => state.categories.isloading)
 
-  const user = useSelector(state => state.auth.user)
-
-  useEffect(() => {
-
-  }, [])
+  const token = useSelector(state => state.auth.token)
 
   return (
 
@@ -56,11 +52,11 @@ function App() {
 
           <Route
             path="/login"
-            element={false ? <LoginPage /> : <Navigate to="/admin" />}
+            element={<LoginPage />}
           />
 
 
-          <Route path="admin" element={false ? <Navigate to="/login" /> : <DashboardPage />} >
+          <Route path="admin" element={<DashboardPage />} >
             <Route index element={<Dashboard />} />
 
 

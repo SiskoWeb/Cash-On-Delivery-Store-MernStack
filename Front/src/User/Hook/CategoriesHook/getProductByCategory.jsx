@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 
 
-export const getProductByCategory = () => {
+export const GetProductByCategory = () => {
     const dispatch = useDispatch()
     const [productsFiltred, setProductsFiltred] = useState([])
     const cart = useSelector((state) => state.cart.Cart)

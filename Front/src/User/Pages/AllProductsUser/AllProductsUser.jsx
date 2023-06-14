@@ -5,6 +5,7 @@ import styles from './ProductsHome.module.scss'
 import { ProductHook } from '../../Hook/ProductHoo/ProductHook'
 import ProductCard from '../../../utilis/ProductCard/ProductCard'
 import NavBar from '../../Components/NavBar/NavBar'
+import FilterBar from '../../Components/FilterBar/FilterBar'
 
 export default function AllProductsUser() {
 
@@ -18,6 +19,7 @@ export default function AllProductsUser() {
         <>
             <NavBar />
             <div className={styles.products}>
+                <FilterBar />
                 <div className={styles.title}>
                     <p></p>
                     <button></button>
@@ -40,6 +42,7 @@ export default function AllProductsUser() {
                         : <h1>No Products</h1>}
 
                 </div>
+
             </div>
         </>
 

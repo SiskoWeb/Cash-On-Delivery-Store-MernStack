@@ -10,6 +10,9 @@ const initialState = {
     user: localStorage.getItem("user")
         ? JSON.parse(localStorage.getItem("user"))
         : [],
+    token: localStorage.getItem("token")
+        ? localStorage.getItem("token")
+        : '',
     isloading: false
 
 }
@@ -28,7 +31,7 @@ export const authSlice = createSlice({
             state.isloading = true
         },
         [loginAction.fulfilled]: (state, action) => {
-            state.user = action.payload
+            // state.user = action.payload
 
             state.isloading = false
 

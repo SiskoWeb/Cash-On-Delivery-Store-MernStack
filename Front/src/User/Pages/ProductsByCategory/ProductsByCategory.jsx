@@ -5,11 +5,11 @@ import ProductCard from '../../../utilis/ProductCard/ProductCard'
 import { useSelector } from 'react-redux'
 import styles from './/ProductsByCategory.module.scss'
 import { useParams } from 'react-router-dom'
-import { getProductByCategory } from '../../Hook/CategoriesHook/getProductByCategory'
+import { GetProductByCategory } from '../../Hook/CategoriesHook/GetProductByCategory'
 
 export default function ProductsByCategory() {
 
-    const [isLoading, productsData, productsFiltred, cart] = getProductByCategory()
+    const [isLoading, productsData, productsFiltred, cart] = GetProductByCategory()
 
     return (
 

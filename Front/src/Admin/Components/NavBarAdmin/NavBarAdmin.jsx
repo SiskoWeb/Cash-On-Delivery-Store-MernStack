@@ -6,7 +6,7 @@ export default function NavBarAdmin() {
 
 
 
-    const [onSubmit, onToggle] = NavBarHook()
+    const [onSubmit, onToggle, toggleFullscreen, isFullscreen] = NavBarHook()
 
 
 
@@ -17,8 +17,10 @@ export default function NavBarAdmin() {
             </div>
 
             <div className={styles.AdminNavBar_profil}>
-
-
+                <a href='/' target='_black'>Back To Website</a>
+                <button className={styles.Fullscreen} onClick={() => toggleFullscreen()}>
+                    <i class="fa-solid fa-expand"></i>
+                </button>
                 <button onClick={(e) => onSubmit(e)}>LogOut</button>
             </div>
         </nav>

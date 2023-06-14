@@ -37,7 +37,13 @@
         text-align: center;
       }
     }
-    button {
+    a {
+      text-decoration: none;
+      color: $Home_Main_color;
+      font-weight: 900;
+    }
+    :nth-child(3) {
+      //button exit
       border: none;
       padding: 5px;
       border-radius: 10px;
@@ -45,6 +51,17 @@
       background-color: red;
       color: white;
       font-weight: 900;
+    }
+
+    .Fullscreen {
+      background-color: transparent;
+      border: none;
+      font-size: 20px;
+      transition: 0.2s transform ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
