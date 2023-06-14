@@ -18,7 +18,7 @@ exports.createCategory = (Model) => asyncHandler(async (req, res) => {
 })
 
 
-exports.getAll = (Model) =>
+exports.getAll = (Model, modelName) =>
     asyncHandler(async (req, res) => {
         let filter = {};
         if (req.filterObj) {
@@ -29,7 +29,7 @@ exports.getAll = (Model) =>
         const apiFeatures = new ApiFeatures(Model.find(filter), req.query)
             .paginate(documentsCounts)
             .filter()
-            // .search(modelName)
+            .search(modelName)
             .limitFields()
             .sort();
 

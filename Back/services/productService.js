@@ -69,8 +69,8 @@ exports.createProduct = factory.createCategory(Prodcuts)
 // @desc    Get All category
 // @route   GET /api/v1/Prodcuts/:id
 // @access    Protected/Admin
-exports.getAllProdcuts = factory.getAll(Prodcuts)
-
+// exports.getAllProdcuts = factory.getAll(Prodcuts)
+exports.getAllProdcuts = factory.getAll(Prodcuts, 'Product');
 // @desc    update specific category
 // @route   UPUT /api/v1/Prodcuts/:id
 // @access    Protected/Admin

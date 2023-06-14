@@ -1,4 +1,4 @@
-// const productModele = require('../models/productModel');
+const productModele = require('../models/productModel');
 // const brandModel = require('../models/brandModel')
 // const categoryModle = require('../models/categoryModel')
 // const subCategoryModele = require('../models/subCategoryModel');
@@ -14,10 +14,10 @@ class ApiFeatures {
     filter() {
         // eslint-disable-next-line node/no-unsupported-features/es-syntax
         const queryStringObj = { ...this.queryString }; //@desc Destructuring all query comes from user
- 
+
         const excludesFields = ['page', 'sort', 'limit', 'fields'];
         excludesFields.forEach((field) => delete queryStringObj[field]);//@desc filter  querys 
-        
+
         // Apply filtration using [gte, gt, lte, lt]
         let queryStr = JSON.stringify(queryStringObj);
         queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
@@ -47,48 +47,43 @@ class ApiFeatures {
         return this;
     }
 
+
+    search(modelName) {
+
+        if (this.queryString.keyword) {
+
+            let query = {};
+            if (modelName === 'Product') {
+                query.$or = [
+                    { title: { $regex: this.queryString.keyword, $options: 'i' } },
+                    { description: { $regex: this.queryString.keyword, $options: 'i' } },
+                ];
+                this.mongooseQuery = productModele.find(query);
+            }
+
+
+
+
+        }
+        return this;
+    }
+
     // search(modelName) {
     //     if (this.queryString.keyword) {
-    //         let query = {};
-    //         if (modelName === 'Products') {
-    //             query.$or = [
-    //                 { title: { $regex: this.queryString.keyword, $options: 'i' } },
-    //                 { description: { $regex: this.queryString.keyword, $options: 'i' } },
-    //             ];
-    //             this.mongooseQuery = productModele.find(query);
-    //         }
+    //       let query = {};
+    //       if (modelName === 'Products') {
+    //         query.$or = [
+    //           { title: { $regex: this.queryString.keyword, $options: 'i' } },
+    //           { description: { $regex: this.queryString.keyword, $options: 'i' } },
+    //         ];
+    //       } else  {
+    //         query = { name: { $regex: this.queryString.keyword, $options: 'i' } };
+    //       }
 
-    //         else if (modelName === 'brand') {
-    //             query = { name: { $regex: this.queryString.keyword, $options: 'i' } };
-    //             this.mongooseQuery = brandModel.find(query);
-    //         }
-    //         else if (modelName === 'category') {
-    //             query = { name: { $regex: this.queryString.keyword, $options: 'i' } };
-    //             this.mongooseQuery = categoryModle.find(query);
-    //         }
-    //         else if (modelName === 'subCategory') {
-    //             query = { name: { $regex: this.queryString.keyword, $options: 'i' } };
-    //             this.mongooseQuery = subCategoryModele.find(query);
-    //         }
-    //         else if (modelName === 'user') {
-    //             query = { name: { $regex: this.queryString.keyword, $options: 'i' } };
-    //             this.mongooseQuery = userModel.find(query);
-    //         }
-    //         else if (modelName === 'review') {
-    //             query = { name: { $regex: this.queryString.keyword, $options: 'i' } };
-    //             this.mongooseQuery = reviewsModel.find(query);
-    //         }
-
-    //         else {
-    //             query = { name: { $regex: this.queryString.keyword, $options: 'i' } };
-    //             this.mongooseQuery = this.mongooseQuery.find(query);
-    //         }
-
-
+    //       this.mongooseQuery = this.mongooseQuery.find(query);
     //     }
     //     return this;
     // }
-
 
 
     paginate(countDocuments) {
