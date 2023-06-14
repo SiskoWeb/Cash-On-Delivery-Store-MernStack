@@ -24,6 +24,7 @@ import OrderDetail from './Admin/Components/OrderDetail/OrderDetail'
 import ThankYouPage from './User/Pages/ThankYouPage/ThankYouPage'
 import ProductsByCategory from './User/Pages/ProductsByCategory/ProductsByCategory'
 import AllProductsUser from './User/Pages/AllProductsUser/AllProductsUser'
+import CreateAdmin from './Admin/Components/CreateAdmin/CreateAdmin'
 
 function App() {
   const isloading = useSelector((state) => state.categories.isloading)
@@ -68,6 +69,7 @@ function App() {
             <Route path="allproducts/:id" index element={<EditProduct />} />
             <Route path="orders/:id" element={<OrderDetail />} />
             <Route path=":id" element={<OrderDetail />} />
+            <Route path="admins" element={<CreateAdmin />} />
 
           </Route>
           <Route path="/ThankYou" element={<ThankYouPage />} />

@@ -25,6 +25,13 @@ $Home_Hero_color: #f4f5f9;
   padding: $padding;
   border-radius: 5px;
 }
+@mixin btnAdmin2($padding) {
+  border: none;
+  background-color: $Home_Main_color;
+  color: white;
+  padding: 10px $padding;
+  border-radius: 20px;
+}
 
 @mixin card() {
   margin-bottom: 30px;

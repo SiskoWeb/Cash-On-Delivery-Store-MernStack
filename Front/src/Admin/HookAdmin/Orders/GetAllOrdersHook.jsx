@@ -26,16 +26,16 @@ export const GetAllOrdersHook = () => {
 
     /// @desc :get tottal income from only delevred orders
     const TotalIncom = (data) => {
-
+        let result = 0;
 
         data.map(item => {
             if (!item.isDelivered === true) return;
             else {
-                return setTotaleIncome(totalIncomToday + item.totalOrderPrice)
-
+                // return setTotaleIncome(totaleIncome + item.totalOrderPrice)
+                return result = result + item.totalOrderPrice
             }
         })
-
+        setTotaleIncome(result)
     }
 
 
@@ -49,7 +49,7 @@ export const GetAllOrdersHook = () => {
         dayTransactions.map(item => {
             if (!item.isDelivered === true) return;
             else {
-                return setTotalIncomToday(totalIncomToday + item.totalOrderPrice)
+                return result = result + item.totalOrderPrice
 
             }
         })
@@ -108,6 +108,8 @@ export const GetAllOrdersHook = () => {
                 setOrders(OrderList.data.data) //@desc push orders  to order state
                 setPaginationResult(OrderList.data.paginationResult)//@desc pushcount of pages and orders 
                 TotalIncom(OrderList.data.data)//@desc push Total Incom all time
+                TotalIncomToday(OrderList.data.data)//@desc push Total Incom inlast 24Hourse
+
                 GetNumberDelivered(OrderList.data.data)//@desc push total of order is deliverd
                 TotalIncomToday(OrderList.data.data)//@desc push Total Incom inlast 24Hourse
 
