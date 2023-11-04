@@ -27,9 +27,9 @@ import AllProductsUser from './User/Pages/AllProductsUser/AllProductsUser'
 import CreateAdmin from './Admin/Components/CreateAdmin/CreateAdmin'
 
 function App() {
-  const isloading = useSelector((state) => state.categories.isloading)
+  let isloading = useSelector((state) => state.categories.isloading)
 
-  const token = useSelector(state => state.auth.token)
+  let token = useSelector(state => state.auth.token)
 
   return (
 
@@ -57,7 +57,7 @@ function App() {
           />
 
 
-          <Route path="admin" element={<DashboardPage />} >
+          <Route path="admin" element={token ? <DashboardPage /> : <LoginPage />} >
             <Route index element={<Dashboard />} />
 
 
