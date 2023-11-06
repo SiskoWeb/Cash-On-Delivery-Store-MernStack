@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import NavBar from '../../Components/NavBar/NavBar'
-import { GetProductHook } from '../../Hook/ProductHoo/GetProductHook'
+
 import ProductCard from '../../../utilis/ProductCard/ProductCard'
-import { useSelector } from 'react-redux'
+
 import styles from './/ProductsByCategory.module.scss'
-import { useParams } from 'react-router-dom'
-import { GetProductByCategory } from '../../Hook/CategoriesHook/GetProductByCategory'
+import { GetProductByCategory } from '../../Hook/CategoriesHook/getProductByCategory.js'
+
+// import { GetProductByCategory } from '../../Hook/CategoriesHook/GetProductByCategory.js'
 
 export default function ProductsByCategory() {
 
